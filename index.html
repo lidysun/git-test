@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+<script>
+    /*工程方式*/
+    function createObj(name,age,job){
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.job = job;
+        o.say = function(){
+            alert(this.name);
+        };
+        return o;
+    }
+
+    var person1 = createObj('sungnag',27,'student');
+    var person2 = createObj('lidysun',26,'teacher');
+    // person2.say();
+
+    /*构造函数方式*/
+    function CreateObj(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.say = function(){
+            alert(this.name)
+        }
+    }
+    var user1 = new CreateObj('sungnag',27,'student');
+    var user2 = new CreateObj('lidysun',26,'teacher');
+    // user2.say();
+    //检测user1是否是CreateObj的实例
+    // alert(user1 instanceof CreateObj);
+    console.log(user1.age);
+
+    /*原型方式*/
+    function CreateItem(){};
+    console.log(CreateItem.prototype);
+    CreateItem.prototype = {
+        name:'sungang',
+        age:27,
+        job:'student',
+        say:function(){
+            alert(this.name);
+        }
+    }
+    var item1 = new CreateItem();
+    var item2 = new CreateItem();
+    item2.name = 'lidysun';
+    // item2.say();
+
+</script>
+</body>
+</html>
